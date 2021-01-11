@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UAS LAB PC</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <style>
+      p{
+        color: blanchedalmond;
+      }
+      h4{color: blanchedalmond;}
+      body{background-color:rgba(44, 42, 42, 0.979); ;}
+      canvas {
+    margin: auto;
+    background: #ececec;
+    width: 100%;
+  }
+  
+  .btn-disabled {
+    color: #fff !important;
+  }
+  .btn1 {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+  
+    </style>
+  </head>
+  <body> 
+    <nav class="navbar navbar-dark bg-dark mb-5">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img style="margin-bottom:-50px;margin-left: 500%;margin-top:-15px;width: 100px;height: 100px;" src="doge1.png" alt="">
+        </a>
+      </div>
+    </nav>
+    <div class="container pb-5">
+      <div class="row">
+        <div class="col-md-8 m-auto">
+          <div class="custom-file mb-3">
+            <input type="file" id="upload-file" />
+            <label style="background-color: black;" for="upload-file" class="custom-file-label">Upload</label>
+          </div>
+          <canvas style="border-radius: 50px;background-color:rgba(44, 42, 42, 0.979) ;" id="canvas"></canvas>
+
+          <h4 class="text-center my-3">Filters</h4>
+
+          <div id="Filters" class="row my-4 text-center">
+            <div class="Filter col-md-3 my-1">
+              <div class="FilterName">
+                <p>saturation</p>
+              </div>
+
+              <div class="FilterSetting">
+                <input
+                  type="range"
+                  min="-100"
+                  max="100"
+                  step="1"
+                  value="0"
+                  data-filter="saturation"
+                />
+                <span class="FilterValue">0</span>
+              </div>
+            </div>
+
+            <div class="Filter col-md-3 my-1">
+              <div class="FilterName">
+                <p>vibrance</p>
+              </div>
+
+              <div class="FilterSetting">
+                <input
+                  type="range"
+                  min="-100"
+                  max="100"
+                  step="1"
+                  value="0"
+                  data-filter="vibrance"
+                />
+                <span class="FilterValue">0</span>
+              </div>
+            </div>
+
+            <div class="Filter col-md-3 my-1">
+              <div class="FilterName">
+                <p>exposure</p>
+              </div>
+
+              <div class="FilterSetting">
+                <input
+                  type="range"
+                  min="-100"
+                  max="100"
+                  step="1"
+                  value="0"
+                  data-filter="exposure"
+                />
+                <span class="FilterValue">0</span>
+              </div>
+            </div>
+
+            <div class="Filter col-md-3 my-1">
+              <div class="FilterName">
+                <p>hue</p>
+              </div>
+
+              <div class="FilterSetting">
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="0"
+                  data-filter="hue"
+                />
+                <span class="FilterValue">0</span>
+              </div>
+            </div>
+            <div class="Filter col-md-3 my-1">
+              <div class="FilterName">
+                <p>noise</p>
+              </div>
+
+              <div class="FilterSetting">
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="0"
+                  data-filter="noise"
+                />
+                <span class="FilterValue">0</span>
+              </div>
+            </div>
+
+            <div class="Filter col-md-3 my-1">
+              <div class="FilterName">
+                <p>clip</p>
+              </div>
+
+              <div class="FilterSetting">
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="0"
+                  data-filter="clip"
+                />
+                <span class="FilterValue">0</span>
+              </div>
+            </div>
+
+            <div class="Filter col-md-3 my-1">
+              <div class="FilterName">
+                <p>sharpen</p>
+              </div>
+
+              <div class="FilterSetting">
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="0"
+                  data-filter="sharpen"
+                />
+                <span class="FilterValue">0</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row mb-3">
+
+            <div class="col-md-3 my-1">
+              <button class="filter-btn sunrise-add btn btn-dark btn-block">
+                Sunrise
+              </button>
+            </div>
+
+            <div class="col-md-3 my-1">
+              <button
+                class="filter-btn crossprocess-add btn btn-dark btn-block"
+              >
+                Cross Process
+              </button>
+            </div>
+
+            <div class="col-md-3 my-1">
+              <button class="filter-btn orangepeel-add btn btn-dark btn-block">
+                Orange Peel
+              </button>
+            </div>
+
+            <div class="col-md-3 my-1">
+              <button class="filter-btn love-add btn btn-dark btn-block">
+                Love
+              </button>
+            </div>
+
+            <div class="col-md-3 my-1">
+              <button class="filter-btn grungy-add btn btn-dark btn-block">
+                Grungy
+              </button>
+            </div>
+
+    
+
+
+        
+
+           
+
+            <div class="col-md-3 my-1">
+              <button class="filter-btn hermajesty-add btn btn-dark btn-block">
+                Her Majesty
+              </button>
+            </div>
+
+            <div class="col-md-3 my-1">
+              <button class="filter-btn nostalgia-add btn btn-dark btn-block">
+                Nostalgia
+              </button>
+            </div>
+
+
+
+          </div>
+
+          <div class="row mt-5">
+            <div class="col-md-6">
+              <button id="download-btn" class="btn btn-info btn-block">
+                Download Image
+              </button>
+            </div>
+            <div class="col-md-6">
+              <button id="revert-btn" class="btn btn-danger btn-block">
+                Remove Filters
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    
+  </body>
+  <script src="./uas.js"></script>
+</html>
